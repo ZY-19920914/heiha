@@ -1,6 +1,6 @@
 import os
 from time import sleep
-import allure
+# import allure
 from appium.webdriver.common.mobileby import MobileBy
 from base_global.app import App
 from base_global.base_page import BasePage
@@ -9,7 +9,7 @@ from hamcrest import *
 from base_global.base_log import log
 
 
-@allure.feature("浴室管理模块")
+# @allure.feature("浴室管理模块")
 class Test_add_bathroom:
     bathroom_name = (MobileBy.XPATH, '//*[@text="浴室名称"]/..//*[@resource-id="com.qekj.merchant:id/tv_device_name"]')
     bathroom_belong = (MobileBy.XPATH, '//*[@text="所属店铺"]/..//*[@resource-id="com.qekj.merchant:id/tv_belong_store"]')
@@ -18,7 +18,7 @@ class Test_add_bathroom:
         self.app = App()
         self.main = self.app.start().main()
 
-    @allure.story("新增浴室")
+    # @allure.story("新增浴室")
     def test_add_bathroom(self):
         """新增浴室"""
         bm = Bathroom_Func(self.app.driver)
@@ -33,7 +33,7 @@ class Test_add_bathroom:
         bm.assertest("测试浴室1", self.bathroom_name)
         bm.assertest("测试浴室店铺1", self.bathroom_belong)
 
-    @allure.story("编辑新增浴室")
+    # @allure.story("编辑新增浴室")
     def test_edit_bathroom(self):
         """编辑浴室"""
         bm = Bathroom_Func(self.app.driver)
@@ -48,7 +48,7 @@ class Test_add_bathroom:
         bm.assertest("测试用浴室1", self.bathroom_name)
         bm.assertest("测试浴室店铺", self.bathroom_belong)
 
-    @allure.story("删除浴室")
+    # @allure.story("删除浴室")
     def test_delete_bathroom(self):
         """删除浴室"""
         bm = BasePage(self.app.driver)

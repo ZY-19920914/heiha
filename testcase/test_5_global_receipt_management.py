@@ -3,11 +3,11 @@ from time import sleep
 from appium.webdriver.common.mobileby import MobileBy
 from base_global.app import App
 from base_global.base_page import BasePage
-import allure
+# import allure
 from base_global.base_log import log
 
 
-@allure.feature("通用小票管理")
+# @allure.feature("通用小票管理")
 class Test_global_receipt:
     # 开通小票店铺名
     global_shop_name = (MobileBy.ANDROID_UIAUTOMATOR, 'new UiSelector().resourceId("com.qekj.merchant:id/tv_shop_name")')
@@ -20,7 +20,7 @@ class Test_global_receipt:
         self.app = App()
         self.main = self.app.start().main()
 
-    @allure.story("新增通用小票")
+    # @allure.story("新增通用小票")
     def test_add_global_receipt(self):
         bm = BasePage(self.app.driver)
         log.info("------'新增通用小票'测试用例执行------")
@@ -32,7 +32,7 @@ class Test_global_receipt:
             global_receipt_submit()
         bm.assertest("测试洗衣店铺", self.global_shop_name)
 
-    @allure.story("编辑通用小票")
+    # @allure.story("编辑通用小票")
     def test_edit_global_receipt(self):
         bm = BasePage(self.app.driver)
         log.info("------'编辑通用小票'测试用例执行------")

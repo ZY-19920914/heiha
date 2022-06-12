@@ -1,6 +1,6 @@
 from time import sleep
 
-import allure
+# import allure
 from appium.webdriver.common.mobileby import MobileBy
 from base_global.app import App
 from base_global.base_page import BasePage
@@ -8,7 +8,7 @@ from hamcrest import *
 from base_global.base_log import log
 
 
-@allure.feature("洗衣机管理")
+# @allure.feature("洗衣机管理")
 class Test_washing:
     # 设备"空闲"状态定位
     status_free_device = (MobileBy.XPATH, '//*[@resource-id="com.qekj.merchant:id/v_circle"]/../../..//*[@text="空闲"]')
@@ -27,7 +27,7 @@ class Test_washing:
         self.app = App()
         self.main = self.app.start().main()
 
-    @allure.story("新增洗衣机")
+    # @allure.story("新增洗衣机")
     def test_add_device(self):
         """
         测试添加洗衣机设备
@@ -48,7 +48,7 @@ class Test_washing:
         bm.assertest("测试洗衣机1", self.device_name)
         bm.assertest("测试洗衣店铺", self.device_shop_belong)
 
-    @allure.story("编辑洗衣机")
+    # @allure.story("编辑洗衣机")
     def test_edit_device(self):
         """
         测试编辑洗衣机设备信息
@@ -70,7 +70,7 @@ class Test_washing:
             base_information()
         bm.assertest("耗时10分钟  价格0.02元", self.func_price)
 
-    @allure.story("启动洗衣机")
+    # @allure.story("启动洗衣机")
     def test_start_device(self):
         """
         测试启动洗衣机
@@ -88,7 +88,7 @@ class Test_washing:
         sleep(3)
         bm.assertest("运行", self.status_run_device)
 
-    @allure.story("复位洗衣机")
+    # @allure.story("复位洗衣机")
     def test_reset_device(self):
         """
         复位运行中的洗衣机
@@ -104,7 +104,7 @@ class Test_washing:
             rest_device()
         bm.assertest("空闲", self.status_free_device)
 
-    @allure.story("删除洗衣机")
+    # @allure.story("删除洗衣机")
     def test_delete_devide(self):
         bm = BasePage(self.app.driver)
         log.info("------'删除洗衣机设备'测试用例执行------")
